@@ -8,18 +8,24 @@ import Itzy from './commponents/sub/Itzy'
 import Location from './commponents/sub/Location'
 import Nmixx from './commponents/sub/Nmixx'
 import Twice from './commponents/sub/Twice'
+import Questions from './commponents/sub/Questions';
 
 function App() {
 	return (
 		<>
 			<Header />
-			<Main />
+			<Route exact path="/">
+				<Main />
+			</Route>
 			<Route path="/day6" component={Day6} />
 			<Route path="/itzy" component={Itzy} />
 			<Route path="/twice" component={Twice} />
 			<Route path="/nmixx" component={Nmixx} />
 			<Route path="/location" component={Location} />
-			<Footer />
+			<Route path="/questions" component={Questions} />
+			<Route exact path="/">
+				<Footer />
+			</Route>
 		</>
 	)
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -15,12 +15,13 @@ const youtubelink = [
 ]
 
 function Main() {
-    const [Youtube, setYoutube] = useState(youtubelink[0].link);
+    const container = useRef(null)
+    const [Youtube, setYoutube] = useState(youtubelink[0].link)
     return (
         <>
             <section className="mv">
                 <iframe src={`https://www.youtube.com/embed/${Youtube}?autoplay=1&mute=1`} ></iframe>
-                <div id="container" className='slid off'>
+                <div id="container" className='slid off' ref={container}>
                     <h1>음원차트</h1>
                     <div id="chart">
                         <div className="TOP100" onClick={() => { window.open(music_url.itzy) }}>
@@ -54,8 +55,10 @@ function Main() {
                             <span>노래 • 박진영 • 24/34 • 3:41</span>
                         </div>
                     </div>
-                    <FontAwesomeIcon icon={faAngleLeft} className='on' />
-                    <FontAwesomeIcon icon={faAngleRight} className='off' />
+                    <FontAwesomeIcon icon={faAngleLeft} className='on' onClick={() => { container.current.classList.add("on") }} />
+                    <FontAwesomeIcon icon={faAngleRight} className='off' onClick={() => {
+                        container.current.classList.remove("on")
+                    }} />
                     <div className="info">
                         음원 차트 클릭 시 spotify 곡 정보로 이동합니다.
                     </div>

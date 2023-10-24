@@ -19,7 +19,7 @@ function Footer() {
                                 <Link to="/">카카오</Link>
                             </li>
                             <li>
-                                <Link to="/quesitions">문의</Link>
+                                <Link to="/questions">문의</Link>
                             </li>
                         </ul>
                         <p>&copy; JPY_Entertainment (Woori)</p>

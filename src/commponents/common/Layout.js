@@ -1,9 +1,14 @@
 import React from 'react'
-
-function Layout() {
+import { forwardRef } from "react";
+const Layout = forwardRef(({ children }, ref) => {
     return (
-        <div>Layout</div>
+        <>
+            <section className="member">
+                {children}
+            </section>
+        </>
     )
-}
+})
+
 
 export default Layout
